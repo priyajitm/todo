@@ -14,57 +14,61 @@ var newtask = document.getElementById("new-task");
 var incomplete = document.getElementById("incomplete-tasks");
 var completed = document.getElementById("completed-tasks");
 
-var btnedit = document.createElement("button");
+//var btnedit = document.createElement("button");
 var btndelete = document.createElement("button");
 var btnsave = document.createElement("button");
+let ele = document.activeElement.closest("li");
+//create edit button
+// let btnedit = document.createElement("button");
+// btnedit.appendChild(document.createTextNode("Edit"));
+// btnedit.classList.add("edit");
+// btnedit.setAttribute("onclick", "editButton()");
+function btnedit() {
+  let btned = document.createElement("img");
+  btned.classList.add("edit");
+  btned.setAttribute("src", "pencil.png");
+  btned.setAttribute("onclick", "editButton()");
+}
+// Edit Button
+function editButton() {
+  let tag = document.activeElement.parentElement;
+  console.log(tag);
+  //   var input = document.createElement("input");
+  // ele.classList.add("editMode");
+  // var btnsave = document.createElement("button");
+  // btnsave.appendChild(document.createTextNode("Save"));
+  // btnsave.classList.add("save");
+  // ele.appendChild(btnsave);
+  // btnsave.setAttribute("onclick", "savebutton()");
+}
 
 // Add Button
 function addButton() {
   var newtask = document.getElementById("new-task");
   var incomplete = document.getElementById("incomplete-tasks");
-
   var li = document.createElement("li");
   var label = document.createElement("label");
   var checkbox = document.createElement("input");
   var input = document.createElement("input");
-  var btnedit = document.createElement("button");
   var btndelete = document.createElement("button");
-
   if (newtask.value !== "") {
     checkbox.setAttribute("type", "checkbox");
-    btnedit.appendChild(document.createTextNode("Edit"));
-    btnedit.classList.add("edit");
     btndelete.appendChild(document.createTextNode("delete"));
     btndelete.classList.add("delete");
     input.setAttribute("type", "text");
     label.appendChild(document.createTextNode(newtask.value));
     incomplete.appendChild(li);
-    btnedit.setAttribute("onclick", "editButton()");
-    // btndelete.setAttribute("onclick", "moveli()");
     checkbox.setAttribute("onclick", "moveli()");
+    let btnedit1 = btnedit();
     li.appendChild(checkbox);
     li.appendChild(label);
     li.appendChild(input);
-    li.appendChild(btnedit);
+    li.appendChild(btnedit1);
     li.classList.add("todo");
-    //li.appendChild(btndelete);
     newtask.value = "";
   } else {
     alert("Enter New Task");
   }
-}
-
-// Edit Button
-function editButton() {
-  ele = document.activeElement.closest("li");
-  //val = document.activeElement.closest("label");
-  var input = document.createElement("input");
-  ele.classList.add("editMode");
-  var btnsave = document.createElement("button");
-  btnsave.appendChild(document.createTextNode("Save"));
-  btnsave.classList.add("save");
-  ele.appendChild(btnsave);
-  btnsave.setAttribute("onclick", "savebutton()");
 }
 
 //Delete Button = Multiple unchecking on working under completed section

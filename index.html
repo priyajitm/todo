@@ -9,17 +9,27 @@
       media="screen"
       charset="utf-8"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=Crimson+Text:600&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <div class="header">
+      <h1>To-Do List</h1>
+      <p>Track your daily goals</p>
+    </div>
     <div class="container">
       <p id="task">
         <label for="new-task">Add Item</label>
-        <input id="new-task" type="text" /><button
+        <input id="new-task" type="text" />
+        <img src="pencil.png" alt="" onclick="addButton()" />
+        <!-- <button
           id="add"
           onclick="addButton()"
         >
           Add
-        </button>
+        </button> -->
       </p>
 
       <h3>Todo</h3>
@@ -29,6 +39,6 @@
       <ul id="completed-tasks"></ul>
     </div>
 
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="test.js"></script>
   </body>
 </html>

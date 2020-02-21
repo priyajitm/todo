@@ -1,13 +1,24 @@
 /* Basic Style */
 body {
-  background: #fff;
+  background: #fea47f;
   color: #333;
   font-family: Lato, sans-serif;
+}
+.header {
+  text-align: center;
+  margin-top: 40px;
+  font-family: "Crimson Text", serif;
 }
 .container {
   display: block;
   width: 400px;
-  margin: 100px auto 0;
+  margin: 50px auto 0;
+  padding: 20px;
+  -webkit-box-shadow: -1px 1px 34px -1px rgba(24, 44, 97, 0.82);
+  -moz-box-shadow: -1px 1px 34px -1px rgba(24, 44, 97, 0.82);
+  box-shadow: -1px 1px 34px -1px rgba(24, 44, 97, 0.82);
+  background-color: #182c61;
+  color: #eee;
 }
 ul {
   margin: 0;
@@ -25,7 +36,7 @@ input,
 button {
   outline: none;
 }
-button {
+/* button {
   background: none;
   border: 0px;
   color: #888;
@@ -37,11 +48,35 @@ button {
 }
 button:hover {
   color: #333;
+} */
+button {
+  box-shadow: inset 0px 1px 0px 0px #f7c5c0;
+  background: linear-gradient(to bottom, #fc8d83 5%, #e4685d 100%);
+  background-color: #fc8d83;
+  border-radius: 2px;
+  border: 1px solid #d83526;
+  margin: 0 0 10px 0;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Courier New;
+  font-size: 18px;
+  padding: 4px 10px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #b23e35;
+}
+button:hover {
+  background: linear-gradient(to bottom, #e4685d 5%, #fc8d83 100%);
+  background-color: #e4685d;
+}
+button:active {
+  position: relative;
+  top: 1px;
 }
 /* Heading */
 h3,
 label[for="new-task"] {
-  color: #333;
+  color: #eee;
   font-weight: 700;
   font-size: 15px;
   border-bottom: 2px solid #333;
@@ -50,7 +85,7 @@ label[for="new-task"] {
   text-transform: uppercase;
 }
 input[type="text"] {
-  margin: 0;
+  margin: 0 40px 0 0;
   font-size: 18px;
   line-height: 18px;
   height: 18px;
@@ -72,7 +107,7 @@ label[for="new-task"] {
 }
 input#new-task {
   float: left;
-  width: 318px;
+  width: 280px;
 }
 p > button:hover {
   color: #0fc57c;
