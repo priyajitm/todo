@@ -164,3 +164,17 @@ ul li.editMode label {
 .vanish {
   display: none;
 }
+.alert {
+  display: block;
+  width: 400px;
+  margin: 50px auto 0;
+  padding: 20px;
+  -webkit-box-shadow: -1px 1px 34px -1px rgba(24, 44, 97, 0.82);
+  -moz-box-shadow: -1px 1px 34px -1px rgba(24, 44, 97, 0.82);
+  box-shadow: -1px 1px 34px -1px rgba(24, 44, 97, 0.82);
+  background-color: #06770f;
+  color: #eee;
+}
+.alert-del {
+  background-color: red;
+}

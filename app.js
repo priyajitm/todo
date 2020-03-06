@@ -24,7 +24,7 @@ class UI {
                         `;
         ul.appendChild(li);
         document.querySelector("#new-task").value = "";
-        alert("Task Added Successfully");
+        this.alertWindow("Task Added Successfully");
     }
 
     static completeTask(el) {
@@ -58,6 +58,7 @@ class UI {
             const editval = li.querySelector(".val").value;
             label.innerHTML = `${editval}`;
             li.querySelector(".val").remove();
+            this.alertWindow("Task Saved Successfully");
         }
 
 
@@ -70,6 +71,7 @@ class UI {
         const savebutton = document.createElement("button");
         if (el.classList.contains("delete")) {
             task.remove();
+            this.alertWindow("Task Removed Successfully");
         }
         else if (el.classList.contains("check")) {
             const ul = document.querySelector("#incomplete-tasks");
@@ -82,13 +84,29 @@ class UI {
             ul.appendChild(task);
         }
     }
+
+    static alertWindow(message) {
+        const div = document.createElement("div")
+        div.className = `alert`;
+        div.appendChild(document.createTextNode(message));
+        const body = document.querySelector("body");
+        const container = document.querySelector('.container');
+        body.insertBefore(div, container);
+        // Vanish in 3 Seconds
+        setTimeout(() => document.querySelector('.alert').remove(), 1000);
+    }
 }
 
 //Event: Add Task
-document.querySelector("#submitbtn").addEventListener("click", (e) => {
-    const newtask = document.querySelector("#new-task").value;
-    UI.addTaskToList(newtask);
-});
+const click = (e) => {
+    if (e.type == "click" || e.keyCode == 13) {
+        const newtask = document.querySelector("#new-task").value;
+        UI.addTaskToList(newtask);
+    };
+}
+
+document.querySelector("#submitbtn").addEventListener("click", click);
+document.querySelector("#new-task").addEventListener("keypress", click);
 
 //Event: Complete/Edit/Save Task 
 document.querySelector("#incomplete-tasks").addEventListener("click", (e) => {
